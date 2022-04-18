@@ -1,0 +1,30 @@
+.nav{
+    padding: 10px;
+    text-align: center;
+    background-color: rgba(25, 25, 25);
+}
+.nav h1{
+    padding: 20px;
+    color: white;
+    text-shadow: 4px 4px 6px rgba(20, 141, 172,0.6);
+}
+.nav span{
+    color: rgb(20, 141, 172);
+    text-shadow: 4px 4px 6px rgba(255, 255, 255, 0.150);
+}
+.nav-link{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 18px;
+}
+
+.nav-link a{
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.nav-link a:hover{
+    color: rgb(20, 141, 172);
+}
