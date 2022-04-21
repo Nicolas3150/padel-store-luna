@@ -4,13 +4,22 @@
     background-color: rgba(25, 25, 25);
 }
 .nav h1{
-    padding: 20px;
+    font-size: 36px;
+    padding: 10px;
     color: white;
     text-shadow: 4px 4px 6px rgba(20, 141, 172,0.6);
 }
 .nav span{
     color: rgb(20, 141, 172);
     text-shadow: 4px 4px 6px rgba(255, 255, 255, 0.150);
+}
+.nav-icon{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+.nav-icon a{
+    text-decoration: none;
 }
 .nav-link{
     list-style-type: none;
@@ -27,4 +36,31 @@
 
 .nav-link a:hover{
     color: rgb(20, 141, 172);
+}
+.bar-icon{
+    color: white;
+    font-size: 24px;
+    display: none;
+}
+.bar-icon:hover{
+    cursor: pointer;
+}
+@media (max-width: 767px){
+    #nav-link{
+        visibility: hidden;
+        opacity: 0;
+        font-size: 0;
+    }
+    .bar-icon{
+        display: flex;
+        padding: 0 10px 0 20px;
+    }
+    #nav-link.active{
+        /* display: flex; */
+        flex-direction: column;
+        font-size: 18px;
+        visibility: visible;
+        opacity: 1;
+        transition: all 0.5s linear;
+    }
 }
