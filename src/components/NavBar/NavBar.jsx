@@ -1,18 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import CartWidget from '../CartWidget/CartWidget';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import './NavBar.css';
 
 function NavBar() {
+    const [clicked, setClicked] = useState(false); 
+    
+    const handleClick = () => {
+        setClicked(!clicked);
+        console.log(clicked);
+    }
+
     return (
-        <nav className='nav'>
+        <nav className={`nav ${clicked? "active" : "" }`}>
             <div className='nav-icon'>
                 <a href="/#"><h1>PADEL <span>STORE</span></h1></a>
                 <CartWidget />
             </div>
-            <FontAwesomeIcon icon={faBars} className="bar-icon" onClick={handleOpenBar}/>
-            <ul className='nav-link' id='nav-link'>
+            <FontAwesomeIcon icon={faBars} className="bar-icon" onClick={ handleClick }/>
+            <ul className={`nav-link ${clicked? "active" : ""}`}>
                 <a href="/#">Paletas</a>
                 <a href="/#">Calzado</a>
                 <a href="/#">Indumentaria</a>
@@ -25,7 +32,3 @@ function NavBar() {
 }
 
 export default NavBar
-
-function handleOpenBar(){
-    document.getElementById('nav-link').classList.toggle('active');
-}

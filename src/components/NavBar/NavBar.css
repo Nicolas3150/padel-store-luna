@@ -1,7 +1,9 @@
 .nav{
-    padding: 10px;
+    padding-bottom: 20px;
     text-align: center;
-    background-color: rgba(25, 25, 25);
+    background-color: rgb(25, 25, 25);
+    height: 100px;
+    transition: all 0.75s linear;
 }
 .nav h1{
     font-size: 36px;
@@ -17,6 +19,7 @@
     display: flex;
     justify-content: space-between;
     align-content: center;
+    z-index: 1030;
 }
 .nav-icon a{
     text-decoration: none;
@@ -26,6 +29,7 @@
     display: flex;
     justify-content: space-evenly;
     font-size: 18px;
+    z-index: -1;
 }
 
 .nav-link a{
@@ -46,21 +50,24 @@
     cursor: pointer;
 }
 @media (max-width: 767px){
-    #nav-link{
-        visibility: hidden;
-        opacity: 0;
+    .nav-link{
+        flex-direction: column;
+        width: 100%;
+        top: -120px;
         font-size: 0;
+        transition: all 0.75s linear;
+        position: absolute;
     }
     .bar-icon{
         display: flex;
-        padding: 0 10px 0 20px;
+        margin: 10px 10px 0 20px;
     }
-    #nav-link.active{
-        /* display: flex; */
-        flex-direction: column;
+    .nav-link.active{
+        top: 14%;
         font-size: 18px;
-        visibility: visible;
-        opacity: 1;
-        transition: all 0.5s linear;
+        position: initial;
+    }
+    .nav.active{
+        height: 330px;
     }
 }
