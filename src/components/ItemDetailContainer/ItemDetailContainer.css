@@ -1,0 +1,6 @@
+.item-container{
+    width: 100%;
+    height: auto; /* Altura "auto" para que se adapte a la cantidad de elementos en pantalla */
+    text-align: center;
+    padding: 20px 0;
+}

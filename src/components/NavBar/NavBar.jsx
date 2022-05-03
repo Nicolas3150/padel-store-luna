@@ -9,7 +9,6 @@ function NavBar() {
     
     const handleClick = () => {
         setClicked(!clicked);
-        console.log(clicked);
     }
 
     return (

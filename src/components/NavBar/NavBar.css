@@ -3,7 +3,7 @@
     text-align: center;
     background-color: rgb(25, 25, 25);
     height: 100px;
-    transition: all 0.75s linear;
+    transition: all 0.5s linear;
 }
 .nav h1{
     font-size: 36px;
@@ -55,7 +55,7 @@
         width: 100%;
         top: -120px;
         font-size: 0;
-        transition: all 0.75s linear;
+        transition: all 0.5s linear;
         position: absolute;
     }
     .bar-icon{
