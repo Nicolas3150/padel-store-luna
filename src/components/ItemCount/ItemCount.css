@@ -1,11 +1,12 @@
 .itemCount{
     display: flex;
-    flex-direction: column;
-    width: 200px;
+    flex-direction: row;
+    width: auto;
     padding: 10px;
+    align-items: center;
 }
 .buttonAdd {
-        min-width: 130px;
+        min-width: 200px;
         height: 40px;
         color: #fff;
         padding: 5px 10px;
@@ -18,7 +19,6 @@
         border-radius: 5px;
         border: 2px solid rgb(20, 141, 172);
         background: rgb(20, 141, 172);
-        margin-top: 20px;
 }
 .buttonAdd:hover {
     background: #fff;
@@ -28,14 +28,15 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    min-width: 200px;
 }
 .buttonCount button{
-    height: 30px;
-    width: 30px;
-    background-color: white;
+    height: 40px;
+    width: 40px;
+    background-color: rgb(25, 25, 25);
     border: none;
     color: rgb(20, 141, 172);
-    font-size: 20px;
+    font-size: 24px;
     cursor: pointer;
     border-radius: 50%;
     text-align: center;
@@ -47,4 +48,13 @@
 .buttonCount input{
     width: 40px;
     text-align: center;
+    font-size: 16px;
+    color: aliceblue;
+    background-color: rgb(25, 25, 25);
+    border: 0;
+}
+@media (max-width: 524px){
+    .itemCount{
+        flex-direction: column;
+    }
 }
