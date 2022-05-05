@@ -3,6 +3,7 @@ import CartWidget from '../CartWidget/CartWidget';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import './NavBar.css';
+import { NavLink } from 'react-router-dom';
 
 function NavBar() {
     const [clicked, setClicked] = useState(false); 
@@ -14,17 +15,17 @@ function NavBar() {
     return (
         <nav className={`nav ${clicked? "active" : "" }`}>
             <div className='nav-icon'>
-                <a href="/#"><h1>PADEL <span>STORE</span></h1></a>
+                <NavLink to={'/'}><h1>PADEL <span>STORE</span></h1></NavLink>
                 <CartWidget />
             </div>
             <FontAwesomeIcon icon={faBars} className="bar-icon" onClick={ handleClick }/>
             <ul className={`nav-link ${clicked? "active" : ""}`}>
-                <a href="/#">Paletas</a>
-                <a href="/#">Calzado</a>
-                <a href="/#">Indumentaria</a>
-                <a href="/#">Accesorios</a>
-                <a href="/#">Pelotas</a>
-                <a href="/#">Bolsos</a>
+                <li><NavLink to={ 'categoty/Paletas' } className={nav => nav.isActive ? 'nav-active' : ''}>Paletas</NavLink></li>
+                <li><NavLink to={ 'categoty/Calzado' } className={nav => nav.isActive ? 'nav-active' : ''}>Calzado</NavLink></li>
+                <li><NavLink to={ 'categoty/Indumentaria' } className={nav => nav.isActive ? 'nav-active' : ''}>Indumentaria</NavLink></li>
+                <li><NavLink to={ 'categoty/Accesorios' } className={nav => nav.isActive ? 'nav-active' : ''}>Accesorios</NavLink></li>
+                <li><NavLink to={ 'categoty/Pelotas' } className={nav => nav.isActive ? 'nav-active' : ''}>Pelotas</NavLink></li>
+                <li><NavLink to={ 'categoty/Bolsos' } className={nav => nav.isActive ? 'nav-active' : ''}>Bolsos</NavLink></li>
             </ul>
         </nav>
     )

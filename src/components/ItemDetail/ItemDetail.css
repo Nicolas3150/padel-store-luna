@@ -9,6 +9,7 @@
 
 .img-container {
     width: auto;
+    height: auto;
     align-items: center;
     background-color: white;
     border-radius: 20px 0 0 20px;
@@ -23,7 +24,8 @@
     border-radius: 20px 0 0 20px;
 }
 .img-container h2{
-    writing-mode: sideways-lr;
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
     color: white;
     text-shadow: 0.05em 0.05em 0.05em rgba(0, 0, 0, 0.2);
     font-size: xx-large;
