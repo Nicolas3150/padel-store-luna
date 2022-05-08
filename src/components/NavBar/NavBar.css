@@ -31,15 +31,19 @@
     font-size: 18px;
     z-index: -1;
 }
-
-.nav-link a{
+.nav-link li{
     padding: 10px;
+}
+.nav-link li a {
     color: white;
     text-decoration: none;
 }
-
 .nav-link a:hover{
     color: rgb(20, 141, 172);
+}
+.nav-link .nav-active{
+    color: rgb(20, 141, 172);
+    font-weight: bold;
 }
 .bar-icon{
     color: white;
