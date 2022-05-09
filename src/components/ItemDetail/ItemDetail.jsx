@@ -1,22 +1,26 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount'
 import './ItemDetail.css'
 
+
 const ItemDetail = ({ item }) => {
     const [clicked, setClicked] = useState(true);
+    const [quantityOfProducts, setQuantityOfProducts] = useState(null);
+
     const handleClick = () => {
         setClicked(!clicked);
     }
 
-    const addCart = () => {
-        alert(`Agregaste ${item?.name} al carrito`);
+    const handleAdd = (quantityToAdd) => {
+        setQuantityOfProducts(quantityToAdd);
     }
 
     /*
-            Specs: Especificaciones de cada producto. Puede no tener especificaciones definidas.
-            Valor de retorno de Object.entries(): Un array de los pares [clave, valor] de 
-            la propiedad enumerable del objeto dado.
-        */
+        Especificaciones de cada producto. Puede no tener especificaciones definidas.
+        Valor de retorno de Object.entries(): Un array de los pares [clave, valor] de 
+        la propiedad enumerable del objeto dado.
+    */
     let specs = Object.entries(item.specs);
 
     return (
@@ -31,7 +35,8 @@ const ItemDetail = ({ item }) => {
                     <p className='price'>Precio: ${item?.price}</p>
                     <hr />
                     <p className='detail'>{item?.description}</p>
-                    <ItemCount stock={item?.stock} onAdd={addCart} />
+                    {quantityOfProducts ? <Link to={'/cart'}><button className='btnFinally'>{`Terminar compra (${quantityOfProducts} unidades)`} </button></Link>:
+                        <ItemCount stock={item?.stock} onAdd={handleAdd} />}
                     <span>Stock: {item?.stock}</span>
                 </div>
             </div>
