@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import ItemCount from '../ItemCount/ItemCount'
 import './ItemDetail.css'
 
-const ItemDetail = ({ item, specs }) => {
+const ItemDetail = ({ item }) => {
     const [clicked, setClicked] = useState(true);
     const handleClick = () => {
         setClicked(!clicked);
@@ -11,6 +11,13 @@ const ItemDetail = ({ item, specs }) => {
     const addCart = () => {
         alert(`Agregaste ${item?.name} al carrito`);
     }
+
+    /*
+            Specs: Especificaciones de cada producto. Puede no tener especificaciones definidas.
+            Valor de retorno de Object.entries(): Un array de los pares [clave, valor] de 
+            la propiedad enumerable del objeto dado.
+        */
+    let specs = Object.entries(item.specs);
 
     return (
         <>
@@ -30,14 +37,14 @@ const ItemDetail = ({ item, specs }) => {
             </div>
             <div className={`item-specs ${clicked ? "active" : ""}`}>
                 <div className={`specs-table`}>
-                    <table>
-                        <tbody>
-                            {specs.map(spec => <tr key={specs.indexOf(spec)}>
-                                <th>{spec[0]}</th>
-                                <td>{spec[1]}</td>
-                            </tr>)}
-                        </tbody>
-                    </table>
+                    {specs.map(spec =>
+                        <div className='row' key={`row` + specs.indexOf(spec)}>
+                            {/* specs[0] es la 'clave' de cada elemento*/}
+                            <div className='col-1'>{spec[0]}</div>
+                            {/* specs[1] es el 'valor' de cada elemento*/}
+                            <div className='col-2'>{spec[1]}</div>
+                        </div>
+                    )}
                 </div>
                 <div className='specs-title' onClick={handleClick}>
                     <h3> Especificaciones </h3>
