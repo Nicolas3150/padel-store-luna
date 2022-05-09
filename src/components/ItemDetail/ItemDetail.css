@@ -24,7 +24,8 @@
     border-radius: 20px 0 0 20px;
 }
 .img-container h2{
-    writing-mode: sideways-lr;
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
     color: white;
     text-shadow: 0.05em 0.05em 0.05em rgba(0, 0, 0, 0.2);
     font-size: xx-large;
@@ -90,10 +91,13 @@
     color: white;
     cursor: pointer;
 }
-table{
+.row{
     max-width: 350px;
+    display: flex;
+    flex-direction: row;
 }
-tbody th{
+.col-1{
+    width: 40%;
     font-size: 16px;
     padding: 10px;
     background: #b9c9fe;
@@ -101,20 +105,21 @@ tbody th{
     border-bottom: 1px solid #fff;
     color:#039; 
 }
-tbody td{
+.col-2{
+    width: 60%;
     padding: 8px 10px;
     background: #e8edff;
     border-bottom: 1px solid #fff;
     color: #669;
     border-top: 1px solid transparent;
-    text-align: justify;
+    text-align: center;
 }
 .item-specs.active .specs-table{
     padding: 0;
     height: 0;
 }
-.item-specs.active .specs-table th,
-.item-specs.active .specs-table td{
+.item-specs.active .specs-table .col-1,
+.item-specs.active .specs-table .col-2 {
     font-size: 0;
     padding: 0;
     border: none;

@@ -80,7 +80,6 @@ const getItem = (id) => {
 
 const ItemDetailContainer = () => { 
     const [item, setItem] = useState({});
-    const [specs, setSpecs] = useState([]);
     const [loading, setLoading] = useState(true);
 
     const { id } = useParams();
@@ -89,10 +88,6 @@ const ItemDetailContainer = () => {
         getItem(id)
             .then(res => {
                 setItem(res);
-                return res;
-            })
-            .then(res => {
-                setSpecs(Object.entries(res.specs));
             })
             .catch(err => {
                 console.log(err);
@@ -104,7 +99,7 @@ const ItemDetailContainer = () => {
     }, [id]);
     return (
         <div className='item-container'>
-            { loading ? <Loading /> : <ItemDetail item = { item } specs={ specs }/>}
+            { loading ? <Loading /> : <ItemDetail item = { item } />}
         </div>
     )
 }
