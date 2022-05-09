@@ -1,17 +1,19 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount'
 import './ItemDetail.css'
 
 
 const ItemDetail = ({ item }) => {
     const [clicked, setClicked] = useState(true);
+    const [quantityOfProducts, setQuantityOfProducts] = useState(null);
 
     const handleClick = () => {
         setClicked(!clicked);
     }
 
-    const addCart = () => {
-        alert(`Agregaste ${item?.name} al carrito`);
+    const handleAdd = (quantityToAdd) => {
+        setQuantityOfProducts(quantityToAdd);
     }
 
     /*
@@ -33,14 +35,15 @@ const ItemDetail = ({ item }) => {
                     <p className='price'>Precio: ${item?.price}</p>
                     <hr />
                     <p className='detail'>{item?.description}</p>
-                    <ItemCount stock={item?.stock} onAdd={addCart} />
+                    {quantityOfProducts ? <Link to={'/cart'}><button className='btnFinally'>{`Terminar compra (${quantityOfProducts} unidades)`} </button></Link>:
+                        <ItemCount stock={item?.stock} onAdd={handleAdd} />}
                     <span>Stock: {item?.stock}</span>
                 </div>
             </div>
             <div className={`item-specs ${clicked ? "active" : ""}`}>
                 <div className={`specs-table`}>
-                    {specs.map(spec => 
-                        <div className='row' key={ `row` + specs.indexOf(spec) }>
+                    {specs.map(spec =>
+                        <div className='row' key={`row` + specs.indexOf(spec)}>
                             {/* specs[0] es la 'clave' de cada elemento*/}
                             <div className='col-1'>{spec[0]}</div>
                             {/* specs[1] es el 'valor' de cada elemento*/}
