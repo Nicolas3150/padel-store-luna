@@ -124,7 +124,7 @@
     padding: 0;
     border: none;
 }
-.btnFinally{
+.btn{
     text-decoration: none;
     color: white;
     font-weight: bold;
@@ -140,11 +140,18 @@
     border: 2px solid rgb(20, 141, 172);
     background: rgb(20, 141, 172);
 }
-.btnFinally:hover {
+.btn:hover {
     background: #fff;
     color: rgb(20, 141, 172);
 }
-
+.context{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+.context .btn{
+    min-width: auto;
+}
 @media (max-width: 972px) {
     .item{
         height: auto;
