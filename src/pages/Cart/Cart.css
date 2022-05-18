@@ -1,3 +1,171 @@
-.cart{
+.cart {
+    margin: 50px;
+}
+
+.cart-item {
     text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    border-radius: 20px;
+    padding: 15px;
+}
+
+.no-items {
+    color: rgba(0, 0, 0, 0.5);
+    padding: 50px;
+}
+
+.cartTittle {
+    display: flex;
+    justify-content: space-around;
+    color: rgba(250, 250, 250, 0.8);
+    text-align: center;
+    padding: 0 20px 0 80px;
+}
+
+.tittleItemPCT {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 50%;
+}
+
+.cartTittle h3 {
+    background-color: rgb(20, 141, 172);
+    border-radius: 10px 10px 0 0;
+    padding: 0 20px;
+}
+
+.tittleItem {
+    min-width: 50%;
+}
+
+.divisor {
+    margin-top: 10px;
+    width: 75%;
+    margin-left: 25%;
+    border: 0;
+    height: 2px;
+    text-align: center;
+    background-image: linear-gradient(to left, rgba(40, 40, 40, 0.5), white);
+}
+
+.btn-delete {
+    border: none;
+    background-color: white;
+    color: rgb(20, 141, 172);
+    width: 200px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.btn-delete:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.btn {
+    text-decoration: none;
+    color: white;
+    min-width: 200px;
+    height: 40px;
+    padding: 5px 5vw;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 5px;
+    border: 2px solid rgb(20, 141, 172);
+    background: rgb(20, 141, 172);
+    font-size: large;
+}
+
+.btn:hover {
+    background: #fff;
+    color: rgb(20, 141, 172);
+}
+
+.buttonsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: center;
+    padding: 10px 30px 10px 30px;
+}
+
+.cart-item h4 {
+    font-size: 24px;
+    text-align: end;
+    padding: 5px 6vw;
+}
+
+@media (max-width: 890px) {
+    .cartTittle {
+        display: flex;
+        color: rgba(250, 250, 250, 0.8);
+        text-align: center;
+        padding: 0 20px 0 80px;
+        height: 25px;
+    }
+
+    .tittleItemPCT {
+        display: flex;
+        writing-mode: vertical-lr;
+        position: relative;
+        top: 100px;
+        left: 15px;
+        width: 0;
+    }
+
+    .tittleItem {
+        width: 100%;
+    }
+
+    .tittleItemPCT h3 {
+        border-radius: 0 10px 10px 0;
+        padding: 5px 0;
+        margin: 5px;
+        width: fit-content;
+        box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+        z-index: 3;
+    }
+
+    .cart {
+        width: 80%;
+    }
+
+    .tittleItemPCT .mount {
+        position: absolute;
+        padding: 3px 0 3px 20px;
+        z-index: 2;
+    }
+
+    .tittleItemPCT .total {
+        padding: 3px 0 3px 40px;
+        z-index: 1;
+    }
+
+}
+
+@media (max-width: 600px) {
+    .tittleItemPCT {
+        top: 160px;
+    }
+
+    .tittleItemPCT .mount {
+        top: -10px;
+    }
+
+    .tittleItemPCT .total {
+        position: absolute;
+        top: 50px;
+    }
+
+    .cart {
+        width: 70%;
+    }
+
+    .btn {
+        font-size: 16px;
+    }
 }
