@@ -23,13 +23,15 @@
     object-fit: contain;
     border-radius: 20px 0 0 20px;
 }
-.img-container h2{
+
+.img-container h2 {
     writing-mode: vertical-lr;
     transform: rotate(180deg);
     color: white;
     text-shadow: 0.05em 0.05em 0.05em rgba(0, 0, 0, 0.2);
     font-size: xx-large;
 }
+
 .detail-container {
     background-color: rgb(25, 25, 25);
     width: auto;
@@ -46,12 +48,14 @@
 .detail-container h1 {
     font-size: 46px;
 }
-.detail{
+
+.detail {
     text-align: justify;
     padding: 0 30px;
     font-size: large;
 }
-.detail-container hr{
+
+.detail-container hr {
     border: 0;
     height: 3px;
     min-width: 30px;
@@ -59,20 +63,24 @@
     margin: 10px 0 10px;
     align-self: flex-start;
 }
-.price{
+
+.price {
     align-self: center;
     font-size: x-large;
 }
-.detail-container span{
+
+.detail-container span {
     color: rgba(255, 255, 255, 0.75);
 }
-.item-specs{
+
+.item-specs {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     padding-right: 15vw;
 }
-.specs-table{
+
+.specs-table {
     max-width: 450px;
     min-width: 220px;
     margin-top: -20px;
@@ -83,7 +91,8 @@
     z-index: -1;
     transition: all 0.5s linear;
 }
-.specs-title{
+
+.specs-title {
     padding: 10px 20px;
     margin-right: 10px;
     background-color: rgb(25, 79, 185);
@@ -91,21 +100,24 @@
     color: white;
     cursor: pointer;
 }
-.row{
+
+.row {
     max-width: 350px;
     display: flex;
     flex-direction: row;
 }
-.col-1{
+
+.col-1 {
     width: 40%;
     font-size: 16px;
     padding: 10px;
     background: #b9c9fe;
     border-top: 4px solid #aabcfe;
     border-bottom: 1px solid #fff;
-    color:#039; 
+    color: #039;
 }
-.col-2{
+
+.col-2 {
     width: 60%;
     padding: 8px 10px;
     background: #e8edff;
@@ -114,76 +126,58 @@
     border-top: 1px solid transparent;
     text-align: center;
 }
-.item-specs.active .specs-table{
+
+.item-specs.active .specs-table {
     padding: 0;
     height: 0;
 }
+
 .item-specs.active .specs-table .col-1,
 .item-specs.active .specs-table .col-2 {
     font-size: 0;
     padding: 0;
     border: none;
 }
-.btn{
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    min-width: 200px;
-    height: 40px;
-    padding: 5px 10px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    display: inline-block;
-    outline: none;
-    border-radius: 5px;
-    border: 2px solid rgb(20, 141, 172);
-    background: rgb(20, 141, 172);
-}
-.btn:hover {
-    background: #fff;
-    color: rgb(20, 141, 172);
-}
-.context{
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-}
-.context .btn{
-    min-width: auto;
-}
+
 @media (max-width: 972px) {
-    .item{
+    .item {
         height: auto;
         flex-direction: column;
     }
-    .img-container{
+
+    .img-container {
         border-radius: 20px 20px 0 0;
         justify-content: center;
     }
-    .img-container img{
+
+    .img-container img {
         border-radius: 20px 20px 0 0;
     }
-    h2{
+
+    .img-container h2 {
         position: absolute;
         left: 10vw;
     }
-    .detail-container{
+
+    .detail-container {
         border-radius: 0 0 20px 20px;
         height: auto;
     }
+
     .detail-container .price,
-    .detail-container p{
+    .detail-container p {
         padding-top: 15px;
         padding-bottom: 15px;
     }
-    .detail-container span{
+
+    .detail-container span {
         padding-top: 15px;
     }
 
 }
-@media (max-width: 560px){
-    .specs-table{
+
+@media (max-width: 560px) {
+    .specs-table {
         max-width: 250px;
     }
 }

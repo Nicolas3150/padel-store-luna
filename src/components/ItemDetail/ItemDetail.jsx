@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react'
-import { Link } from 'react-router-dom';
 import CartContext from '../../store/CartContext';
 import ItemCount from '../ItemCount/ItemCount'
 import './ItemDetail.css'
@@ -37,20 +36,6 @@ const ItemDetail = ({ item }) => {
                     <hr />
                     <p className='detail'>{item?.description}</p>
                     <ItemCount stock={item?.stock} onAdd={handleAdd} />
-                    <div className='context'>
-                        <button className='btn' onClick={() => console.log(cartCtx.products)}>Print cart</button>
-                        <button className='btn' onClick={() => cartCtx.removeItem(item.id)}>Remove product</button>
-                        <button className='btn' onClick={() => cartCtx.clear()}>Clear</button>
-                        <button className='btn' onClick={() => console.log(cartCtx.isInCart(item.id))}>Is In Cart</button>
-                        <button className='btn' onClick={() => console.log(cartCtx.getCartQuantity())}>Quantity</button>
-                        {cartCtx.products.length !==0  &&
-                            <button className='btn' onClick={() => console.log(cartCtx)}>
-                                <Link to='/cart'>
-                                    {`Terminar compra (${cartCtx.getCartQuantity()} items)`}
-                                </Link>
-                            </button>
-                        }
-                    </div>
                     <span>Stock: {item?.stock}</span>
                 </div>
             </div>
