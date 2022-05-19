@@ -20,12 +20,12 @@ function NavBar() {
             </div>
             <FontAwesomeIcon icon={faBars} className="bar-icon" onClick={ handleClick }/>
             <ul className={`nav-link ${clicked? "active" : ""}`}>
-                <li><NavLink to={ 'categoty/Paletas' } className={nav => nav.isActive ? 'nav-active' : ''}>Paletas</NavLink></li>
-                <li><NavLink to={ 'categoty/Calzado' } className={nav => nav.isActive ? 'nav-active' : ''}>Calzado</NavLink></li>
-                <li><NavLink to={ 'categoty/Indumentaria' } className={nav => nav.isActive ? 'nav-active' : ''}>Indumentaria</NavLink></li>
-                <li><NavLink to={ 'categoty/Accesorios' } className={nav => nav.isActive ? 'nav-active' : ''}>Accesorios</NavLink></li>
-                <li><NavLink to={ 'categoty/Pelotas' } className={nav => nav.isActive ? 'nav-active' : ''}>Pelotas</NavLink></li>
-                <li><NavLink to={ 'categoty/Bolsos' } className={nav => nav.isActive ? 'nav-active' : ''}>Bolsos</NavLink></li>
+                <li><NavLink to={ 'category/Paletas' } className={nav => nav.isActive ? 'nav-active' : ''}>Paletas</NavLink></li>
+                <li><NavLink to={ 'category/Calzado' } className={nav => nav.isActive ? 'nav-active' : ''}>Calzado</NavLink></li>
+                <li><NavLink to={ 'category/Indumentaria' } className={nav => nav.isActive ? 'nav-active' : ''}>Indumentaria</NavLink></li>
+                <li><NavLink to={ 'category/Accesorios' } className={nav => nav.isActive ? 'nav-active' : ''}>Accesorios</NavLink></li>
+                <li><NavLink to={ 'category/Pelotas' } className={nav => nav.isActive ? 'nav-active' : ''}>Pelotas</NavLink></li>
+                <li><NavLink to={ 'category/Bolsos' } className={nav => nav.isActive ? 'nav-active' : ''}>Bolsos</NavLink></li>
             </ul>
         </nav>
     )

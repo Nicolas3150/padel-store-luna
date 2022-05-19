@@ -1,7 +1,11 @@
-.list-card{
+.list-card {
     height: auto;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, 16rem);
     justify-content: center;
+}
+
+.list-card h2 {
+    color: rgba(0, 0, 0, 0.5);
 }
