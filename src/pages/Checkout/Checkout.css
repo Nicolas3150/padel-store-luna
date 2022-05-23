@@ -1,0 +1,89 @@
+.checkoutContainer{
+    margin: 50px;
+    padding: 50px;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    border-radius: 20px;
+}
+.checkoutContainer hr{
+    color: rgb(20, 141, 172);
+    width: 50px;
+    border: 2px solid;
+    margin: 20px 0;
+}
+.formulario{
+    display: flex;
+    flex-direction: column;
+}
+.formulario form{
+    display: flex;
+    flex-direction: column;
+}
+.formulario form input{
+    width: fit-content;
+    min-width: 320px;
+    padding: 10px;
+    margin: 10px;
+}
+.formulario input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+input[type=number] { -moz-appearance:textfield; }
+
+.formulario form span{
+    color: red;
+    margin: 0 10px;
+}
+
+.checkout{
+    display: flex;
+}
+.checkoutCart{
+    width: 100%;
+    margin-left: 10vw;
+}
+.itemInCart{
+    padding: 10px 0;
+    display: flex;
+    height: fit-content;
+    align-items: center;
+    width: 100%;
+}
+.itemInCart img{
+    height: 75px;
+    width: 75px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+.infoItem{
+    color: rgba(0, 0, 0, 0.56);
+    display: flex;
+    flex-direction: column;
+}
+.infoItem p{
+    font-size: 18px;
+    margin: 0 10px 10px 10px;
+}
+.infoItem span{
+    margin: 0 10px 10px 10px;
+}
+@media (max-width: 970px){
+    .checkout{
+        flex-direction: column-reverse;
+    }
+    .checkoutCart{
+        margin-left: 0;
+    }
+    .formulario{
+        align-items: center;
+    }
+    .formulario form{
+        padding-right: 10px;
+        width: 100%;
+    }
+    .formulario form input{
+        width: 100%;
+        min-width: auto;
+    }
+}

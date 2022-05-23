@@ -8,8 +8,7 @@ const CartContext = createContext({
     isInCart: () => { },
     getCartQuantity: () => { },
     getTotalUnit: () => { },
-    getTotal: () => { },
-    checkout: () => { }
+    getTotal: () => { }
 });
 
 export const CartContextProvider = ({ children }) => {
@@ -48,11 +47,6 @@ export const CartContextProvider = ({ children }) => {
             return total + (value.price * value.quantity);
         }, 0)
     }
-    const checkout = () => {
-        console.log(productList);
-        clear();
-        alert('Gracias por la compra!\n Tu compra se ve en consola ;)');
-    }
     return (
         <CartContext.Provider value={{
             products: productList,
@@ -62,8 +56,7 @@ export const CartContextProvider = ({ children }) => {
             isInCart,
             getCartQuantity,
             getTotalUnit,
-            getTotal,
-            checkout
+            getTotal
         }}>
             {children}
         </CartContext.Provider>

@@ -24,7 +24,9 @@ const Cart = () => {
             <h4>Total: ${cartCtx.getTotal()}</h4>
             <hr className='divisor' />
             <div className='buttonsContainer'>
-              <button className='btn' onClick={() => cartCtx.checkout()}>Finalizar compra</button>
+              <button className='btn' >
+                <Link to={'/checkout'}>Finalizar compra</Link>
+              </button>
               <button className='btn-delete' onClick={() => cartCtx.clear()}>Eliminar carrito</button>
             </div>
           </div>
