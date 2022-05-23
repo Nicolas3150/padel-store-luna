@@ -99,6 +99,13 @@
     padding: 5px 6vw;
 }
 
+.btn a{
+    color: white;
+    text-decoration: none;
+}
+.btn a:hover{
+    color: rgb(20, 141, 172);
+}
 @media (max-width: 890px) {
     .cartTittle {
         display: flex;
