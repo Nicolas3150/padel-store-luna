@@ -8,14 +8,18 @@
 }
 
 .bubble {
-    border-radius: 50%;
     height: 15px;
     width: 15px;
     font-size: 14px;
-    background-color: rgb(20, 141, 172);
-    position: relative;
-    bottom: 10px;
-    left: 15px;
+    background-color: rgb(25, 25, 25);
+    position: absolute;
+    top: 16px;
+    right: 5vw;
     color: white;
-    padding: 2px;
+    font-weight: bold;
+    padding: 2.5px 4.1px;
+    clip-path: polygon(0% 0%,
+            100% 0%,
+            calc(100% - 5px) 100%,
+            calc(0% + 4px) 100%);
 }

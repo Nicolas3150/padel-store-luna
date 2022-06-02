@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+
 import ItemList from '../../components/ItemList/ItemList'
 import Loading from '../../components/Loading/Loading'
-import './ItemListContainer.css'
+import { errorAlert } from '../../components/Alert/Alert'
+
 import { collection, getDocs, query, where } from 'firebase/firestore'
-import { db } from '../../services/firebase' 
+import { db } from '../../services/firebase'
+
+
+import './ItemListContainer.css'
 
 const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
@@ -15,15 +20,16 @@ const ItemListContainer = () => {
     setLoading(true);
 
     const itemCollection = collection(db, 'items')
-    const q = categoryId ? query(itemCollection, where('category', '==', categoryId)) : itemCollection;
+    const items = categoryId ? query(itemCollection, where('category', '==', categoryId)) : itemCollection;
 
-    getDocs(q)
+    getDocs(items)
       .then(snapshot => {
         setProducts(snapshot.docs.map(doc => {
           return { id: doc.id, ...doc.data() }
         }))
       })
       .catch(err => {
+        errorAlert('Ha ocurrido un error al cargar los productos.');
         console.log(err)
       })
       .finally(() => {

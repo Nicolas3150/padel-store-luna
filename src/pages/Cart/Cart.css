@@ -7,6 +7,7 @@
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
     border-radius: 20px;
     padding: 15px;
+    background-color: white;
 }
 
 .no-items {
@@ -99,13 +100,15 @@
     padding: 5px 6vw;
 }
 
-.btn a{
+.btn a {
     color: white;
     text-decoration: none;
 }
-.btn a:hover{
+
+.btn a:hover {
     color: rgb(20, 141, 172);
 }
+
 @media (max-width: 890px) {
     .cartTittle {
         display: flex;
