@@ -1,9 +1,14 @@
 import React, { useContext, useState } from 'react'
+
 import { db } from '../../services/firebase';
 import { addDoc, collection } from 'firebase/firestore';
+
 import CartContext from '../../store/CartContext';
 import Loading from '../../components/Loading/Loading'
+import { AlertSuccess, errorAlert } from '../../components/Alert/Alert';
+
 import { Link } from 'react-router-dom';
+
 import './Checkout.css'
 
 const Checkout = () => {
@@ -31,10 +36,11 @@ const Checkout = () => {
             const col = collection(db, "orders");
             const order = await addDoc(col, data);
             setOrderId(order.id);
-            clear();
+            clear(false);
             setLoading(false);
 
         } catch (err) {
+            errorAlert('No se pudo realizar la orden. Por favor intetenlo nuevamente.');
             console.log(err);
         }
     }
@@ -61,69 +67,73 @@ const Checkout = () => {
     const validate = (value, regx) => {
         return (regx.test(value) || value.length === 0);
     }
-
     return (
         <div className='checkoutContainer'>
-            {loading ? <Loading /> : orderId ? (<div>
-                <h2>SU PEDIDO SE HA REALIZADO CON EXITO</h2>
-                <h4>{`Su código de compra es: ${orderId}`}</h4>
-                <Link to="/"><h5>Ir al inicio...</h5></Link>
-            </div>) :
-                (<>
-                    <h1>Finalizando compra</h1>
-                    <hr />
-                    <div className='checkout'>
-                        <div className='formulario'>
-                            <h3>Completar datos</h3>
-                            <form onSubmit={handleSubmit}>
-                                <input
-                                    type="text"
-                                    name="name"
-                                    placeholder="Nombre"
-                                    value={name}
-                                    onChange={handleInputChange}
-                                    required
-                                />
-                                {validate(buyer.name, regName) ? '' : <span>El nombre solo debe contener letras</span>}
-                                <input
-                                    type="email"
-                                    name="email"
-                                    placeholder="Email"
-                                    value={email}
-                                    onChange={handleInputChange}
-                                    required
-                                />
-                                {validate(buyer.email, regEmail) ? '' : <span>Ingrese un mail valido <br /> Ejemplo: padelstore@example.com</span>}
-                                <input
-                                    type="number"
-                                    name="phone"
-                                    placeholder="Telefono"
-                                    value={phone}
-                                    onChange={handleInputChange}
-                                    required
-                                />
-                                {validate(buyer.phone, regPhone) ? '' : <span>Ingrese un telefono valido <br />En lo posible solo utilice numeros, sin espacios ni guiones</span>}
-                                <input
-                                    type="submit"
-                                    value="Finalizar Compra"
-                                    className="btn"
-                                />
-                            </form>
-                        </div>
-                        <div className='checkoutCart'>
-                            <h3>Carrito</h3>
-                            {products.map((p) =>
-                                <div className='itemInCart' key={p.id}>
-                                    <img src={p.img} alt="" />
-                                    <div className='infoItem'>
-                                        <p>{p.name}</p>
-                                        <span>Cantidad: {p.quantity}</span>
-                                    </div>
-                                </div>)}
-                        </div>
+            {loading ? <Loading /> : products.length ? (<>
+                <h1>Finalizando compra</h1>
+                <hr />
+                <div className='checkout'>
+                    <div className='formulario'>
+                        <h3>Completar datos</h3>
+                        <form onSubmit={handleSubmit}>
+                            <input
+                                type="text"
+                                name="name"
+                                placeholder="Nombre"
+                                value={name}
+                                onChange={handleInputChange}
+                                required
+                            />
+                            {validate(buyer.name, regName) ? '' : <span>El nombre solo debe contener letras</span>}
+                            <input
+                                type="email"
+                                name="email"
+                                placeholder="Email"
+                                value={email}
+                                onChange={handleInputChange}
+                                required
+                            />
+                            {validate(buyer.email, regEmail) ? '' : <span>Ingrese un mail valido <br /> Ejemplo: padelstore@example.com</span>}
+                            <input
+                                type="number"
+                                name="phone"
+                                placeholder="Telefono"
+                                value={phone}
+                                onChange={handleInputChange}
+                                required
+                            />
+                            {validate(buyer.phone, regPhone) ? '' : <span>Ingrese un telefono valido <br />En lo posible solo utilice numeros, sin espacios ni guiones</span>}
+                            <input
+                                type="submit"
+                                value="Finalizar Compra"
+                                className="btn"
+                            />
+                        </form>
                     </div>
-                </>
-                )}
+                    <div className='checkoutCart'>
+                        <h3>Carrito</h3>
+                        {products.map((p) =>
+                            <div className='itemInCart' key={p.id}>
+                                <img src={p.img} alt="" />
+                                <div className='infoItem'>
+                                    <p>{p.name}</p>
+                                    <span>Cantidad: {p.quantity}</span>
+                                </div>
+                            </div>)}
+                    </div>
+                </div>
+            </>
+            ) : <>
+                {orderId ? AlertSuccess(orderId) : null}
+                <div className='noItems'>
+                    <h2 className='no-items'>No hay items en el carrito</h2>
+                    <Link to={'/'}>
+                        <button className='btn-delete'>Ir al inicio...</button>
+                    </Link>
+
+                </div>
+            </>
+            }
         </div>
 
     )

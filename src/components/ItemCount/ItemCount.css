@@ -1,36 +1,40 @@
-.itemCount{
+.itemCount {
     display: flex;
     flex-direction: row;
     width: auto;
     padding: 10px;
     align-items: center;
 }
+
 .buttonAdd {
-        min-width: 200px;
-        height: 40px;
-        color: #fff;
-        padding: 5px 10px;
-        font-weight: bold;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        position: relative;
-        display: inline-block;
-        outline: none;
-        border-radius: 5px;
-        border: 2px solid rgb(20, 141, 172);
-        background: rgb(20, 141, 172);
+    min-width: 200px;
+    height: 40px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 5px;
+    border: 2px solid rgb(20, 141, 172);
+    background: rgb(20, 141, 172);
 }
+
 .buttonAdd:hover {
     background: #fff;
     color: rgb(20, 141, 172);
-  }
-.buttonCount{
+}
+
+.buttonCount {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     min-width: 200px;
 }
-.buttonCount button{
+
+.buttonCount button {
     height: 40px;
     width: 40px;
     background-color: rgb(25, 25, 25);
@@ -41,11 +45,13 @@
     border-radius: 50%;
     text-align: center;
 }
-.buttonCount button:active{
+
+.buttonCount button:active {
     background-color: rgb(20, 141, 172);
     color: white;
 }
-.buttonCount input{
+
+.buttonCount input {
     width: 40px;
     text-align: center;
     font-size: 16px;
@@ -53,8 +59,9 @@
     background-color: rgb(25, 25, 25);
     border: 0;
 }
-@media (max-width: 524px){
-    .itemCount{
+
+@media (max-width: 524px) {
+    .itemCount {
         flex-direction: column;
     }
 }

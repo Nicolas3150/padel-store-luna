@@ -15,10 +15,16 @@ export const CartContextProvider = ({ children }) => {
     const [productList, setProductList] = useState([]);
 
     const addProduct = (product) => {
-        isInCart(product.id) ?
-            setProductList(productList.map(p => p.id === product.id && (p.quantity + product.quantity) <= product.stock ?
-                { ...p, quantity: p.quantity + product.quantity } : p)) :
+        const index = productList.findIndex(item => item.id === product.id);
+        if (index !== -1) {
+            if (productList[index].quantity + product.quantity <= product.stock) {
+                setProductList(productList.map(p => p.id === product.id ? { ...p, quantity: p.quantity + product.quantity } : p));
+            } else {
+                return -1
+            }
+        } else {
             setProductList([product, ...productList]);
+        }
     }
     const removeItem = (id) => {
         const indexToRemove = productList.findIndex(item => item.id === id);

@@ -1,88 +1,119 @@
-.checkoutContainer{
+.checkoutContainer {
     margin: 50px;
     padding: 50px;
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
     border-radius: 20px;
+    background-color: white;
 }
-.checkoutContainer hr{
+
+.checkoutContainer hr {
     color: rgb(20, 141, 172);
     width: 50px;
     border: 2px solid;
     margin: 20px 0;
 }
-.formulario{
+
+.formulario {
     display: flex;
     flex-direction: column;
 }
-.formulario form{
+
+.formulario form {
     display: flex;
     flex-direction: column;
 }
-.formulario form input{
+
+.formulario form input {
     width: fit-content;
     min-width: 320px;
     padding: 10px;
     margin: 10px;
+    border: none;
+    border-bottom: 2px solid rgba(0, 0, 0, .2);
 }
+
 .formulario input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
--webkit-appearance: none;
-margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
-input[type=number] { -moz-appearance:textfield; }
 
-.formulario form span{
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.formulario form span {
     color: red;
-    margin: 0 10px;
+    font-size: 14px;
+    margin: -5px 10px;
 }
 
-.checkout{
+.checkout {
     display: flex;
 }
-.checkoutCart{
+
+.checkoutCart {
     width: 100%;
     margin-left: 10vw;
 }
-.itemInCart{
+
+.itemInCart {
     padding: 10px 0;
     display: flex;
     height: fit-content;
     align-items: center;
     width: 100%;
 }
-.itemInCart img{
+
+.itemInCart img {
     height: 75px;
     width: 75px;
     object-fit: contain;
     border-radius: 50%;
 }
-.infoItem{
+
+.infoItem {
     color: rgba(0, 0, 0, 0.56);
     display: flex;
     flex-direction: column;
 }
-.infoItem p{
+
+.infoItem p {
     font-size: 18px;
     margin: 0 10px 10px 10px;
 }
-.infoItem span{
+
+.infoItem span {
     margin: 0 10px 10px 10px;
 }
-@media (max-width: 970px){
-    .checkout{
+
+.noItems {
+    text-align: center;
+}
+
+.noItems h2 {
+    padding: 50px;
+}
+
+@media (max-width: 970px) {
+    .checkout {
         flex-direction: column-reverse;
     }
-    .checkoutCart{
+
+    .checkoutCart {
         margin-left: 0;
     }
-    .formulario{
+
+    .formulario {
         align-items: center;
     }
-    .formulario form{
+
+    .formulario form {
         padding-right: 10px;
         width: 100%;
     }
-    .formulario form input{
+
+    .formulario form input {
         width: 100%;
         min-width: auto;
     }

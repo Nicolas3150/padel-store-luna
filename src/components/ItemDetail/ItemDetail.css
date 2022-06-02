@@ -30,6 +30,11 @@
     color: white;
     text-shadow: 0.05em 0.05em 0.05em rgba(0, 0, 0, 0.2);
     font-size: xx-large;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select: none;
 }
 
 .detail-container {
@@ -146,6 +151,7 @@
     }
 
     .img-container {
+        min-height: 450px;
         border-radius: 20px 20px 0 0;
         justify-content: center;
     }

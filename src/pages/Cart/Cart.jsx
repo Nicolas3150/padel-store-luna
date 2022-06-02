@@ -1,15 +1,24 @@
 import React, { useContext } from 'react'
+
 import CartContext from '../../store/CartContext'
 import ItemCart from '../../components/ItemCart/ItemCart'
-import './Cart.css'
+import { ToastAlert } from '../../components/Alert/Alert'
+
 import { Link } from 'react-router-dom'
 
+import './Cart.css'
+
 const Cart = () => {
-  const cartCtx = useContext(CartContext);
+  const { products, getTotal, clear } = useContext(CartContext);
+
+  const handleDelete = () => {
+    clear();
+    ToastAlert('info', 'Se ha eliminado el carrito', '');
+  }
 
   return (
     <div className='cart'>
-      {cartCtx.products.length ?
+      {products.length ?
         <>
           <div className='cartTittle'>
             <h3 className='tittleItem'>Item</h3>
@@ -20,14 +29,14 @@ const Cart = () => {
             </div>
           </div>
           <div className='cart-item'>
-            {cartCtx.products.map((p) => <ItemCart item={p} key={'cartItem' + p.id} />)}
-            <h4>Total: ${cartCtx.getTotal()}</h4>
+            {products.map((p) => <ItemCart item={p} key={'cartItem' + p.id} />)}
+            <h4>Total: ${getTotal()}</h4>
             <hr className='divisor' />
             <div className='buttonsContainer'>
-              <button className='btn' >
-                <Link to={'/checkout'}>Finalizar compra</Link>
-              </button>
-              <button className='btn-delete' onClick={() => cartCtx.clear()}>Eliminar carrito</button>
+              <Link to={'/checkout'}>
+                <button className='btn' >Finalizar compra</button>
+              </Link>
+              <button className='btn-delete' onClick={ handleDelete }>Eliminar carrito</button>
             </div>
           </div>
         </> :

@@ -1,10 +1,12 @@
 import { Route, Routes } from 'react-router-dom';
-import './App.css';
+
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './pages/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './pages/ItemDetailContainer/ItemDetailContainer';
 import Cart from './pages/Cart/Cart'
 import Checkout from './pages/Checkout/Checkout';
+
+import './App.css';
 
 function App() {
   return (
